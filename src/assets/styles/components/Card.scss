@@ -1,0 +1,33 @@
+@import "../utils/Colors.scss";
+
+.card {
+  border-radius: 10px;
+  border: solid 1px #ddd;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  margin: 5px;
+  align-items: center;
+  justify-self: stretch;
+}
+
+.card__img {
+  object-fit: cover;
+  -o-object-fit: cover;
+  height: 50px;
+  width: 50px;
+}
+
+
+.card__info {
+  margin-left: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  span {
+    color: $text-color;
+    font-size: small;
+    font-weight: bold;
+  }
+}

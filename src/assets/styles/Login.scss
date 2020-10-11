@@ -1,0 +1,39 @@
+@import "./utils/Colors.scss";
+@import "./utils/Medias.scss";
+
+.login {
+    align-items: center;
+    background: linear-gradient($primary-color, $secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.login__container{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    
+    button {
+        margin-top: 50px;
+    }
+}
+
+@include tablet {
+    .login__container {
+        background-color: rgba(255,255,255,0.1);
+        display: flex;
+        flex-direction: column;
+        min-height: 450px;
+        min-width: 450px;
+        align-items: center;
+        color: white;
+        justify-content: space-evenly;
+    }
+}
+
+

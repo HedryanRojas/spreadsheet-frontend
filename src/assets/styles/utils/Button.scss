@@ -1,0 +1,35 @@
+@import "./Colors.scss";
+
+@mixin buttonBG($bg) {
+    border: 2px solid $bg;
+    color: $bg;
+    &:hover {
+        border: 2px solid  $secondary-color;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+.button {
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:hover {
+        background-color: $secondary-color;
+        color: white;
+        transform: scale(1.1);
+    }
+}
+
+
+.white {
+    @include buttonBG(white);
+}
+
+.secondary {
+    @include buttonBG($secondary-color);
+}

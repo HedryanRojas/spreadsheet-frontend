@@ -1,0 +1,51 @@
+@import "./utils/Colors.scss";
+@import "./utils/Medias.scss";
+
+.home__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 15px;
+    span {
+        color: $text-color;
+        font-size: medium;
+        font-weight: bold;
+    };
+    button {
+        background: none;
+        border: solid 2px $secondary-color;
+        border-radius: 5px;
+        color: $secondary-color;
+        cursor: pointer;
+        height: 30px;
+        outline: none;
+        transition: .5s;
+        width: 100px;
+        &:hover{
+          background-color: $secondary-color;
+          border: none;
+          color: white;
+          transform:scale(1.1);
+        }
+    }
+}
+
+.home__grid{
+    display: grid;
+    grid-template-columns: repeat(1, auto)
+}
+
+@include tablet{
+    .home__grid {
+        display: grid;
+        grid-template-columns: repeat(2, auto)
+    }
+}
+
+@include desktop{
+    .home__grid {
+        display: grid;
+        grid-template-columns: repeat(5, auto)
+    }
+}
