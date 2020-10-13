@@ -10,6 +10,7 @@ export const initialState = {
 
 const SpreadSheetReducer = BaseReducer(initialState, {
   [SpreadSheetAction.SAVE_CELL_DATA_FINISHED](state, action) {
+    console.log(action.payload)
     return {
       ...state,
       spreadsheet: action.payload,

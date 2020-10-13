@@ -1,14 +1,14 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Route, Switch, HashRouter } from 'react-router-dom'
 import Login from '../views/Login'
 import React from 'react'
 
 const Auth = () => (
-  <BrowserRouter>
+  <HashRouter basename='/'>
     <Switch>
       <Route exact path='/' component={Login} />
       <Route component={Login} />
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 )
 
 export default Auth

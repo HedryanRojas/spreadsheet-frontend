@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SpreadSheet
 
-## Available Scripts
+This project aims to create a web spreadsheet where users can perform the basic operations that can be performed in others spreadsheets like google sheets, this data will be stored and it could be accessible by the user who has created it later if the user wants to.
 
-In the project directory, you can run:
+[Live demo](https://rojas96.github.io/spreadsheet-frontend/#/)
+# Supported Use-Cases
 
-### `yarn start`
+  - System must support at least 1000 rows and 1000 columns.
+  - Users can cut, copy, paste and delete cells individually or by range.
+  - Each cell will support only text or numbers.
+  - System must perform this operations:  addition( + ),  subtraction ( - ),  multiplication( * ),  division( / ), exponentiation ( ^ )  keeping the evaluation precedence when it has parentesys. Example (1 + 2) * 3  = 9. 
+  - These functions will be available: Sum, Multiplicative, Calculate the largest number, Calculate the smallest number,
+  - Calculate the mean, Standard deviation, Variance, Mode, Median.
+  - System could combine math operations in order to create more complex operations.
+  - System must support multiple users.
+  - Each user will be able to create as many spreadsheets as the user wants but each spreadsheet only will have 1 sheet in it.
+  - User will be able to delete any spreadsheet that user does not need anymore 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Out of scope
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+   - Offline working 
+   - Search functionality
+   - Cell range selection dragging mouse pointer over them
 
-### `yarn test`
+### Tech
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+spreadsheet uses a number of open source projects to work properly:
 
-### `yarn build`
+* [ReactJS](https://reactjs.org/) - A JavaScript library for building user interfaces!
+* [Redux](https://redux.js.org/) - A Predictable State Container for JS Apps
+* [React-toastify](https://fkhadra.github.io/react-toastify/introduction/) - Allows you to add notifications to your app with ease.
+* [React virtualized](https://bvaughn.github.io/react-virtualized/#/components/List) - React components for efficiently rendering large lists and tabular data.
+* [Firebase](https://firebase.google.com/) -  Provides developers with a variety of tools and services (Backend-as-a-Service).
+* [Formula-parser](https://github.com/handsontable/formula-parser) - Provides a Parser class that evaluates excel and mathematical formulas.
+* [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Requires [Node.js](https://nodejs.org/) v4+ to run.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install the dependencies and devDependencies and start the server.
 
-### `yarn eject`
+```sh
+$ cd spreadsheet-frontend
+$ cp .env.example .env  
+$ npm install -d
+```
+Before start you need to add firebase credentials to .env file
+```sh 
+$ npm start
+```
+The application will run in dummy mode by default, this means all the data will be saved in the localstorage to change it you have to change REACT_APP_ONLY_DUMMY from true to false 
+```sh
+REACT_APP_ONLY_DUMMY = true
+```
+and add your API url to 
+```sh
+REACT_APP_API=
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Todos
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ - Write Tests

@@ -10,12 +10,6 @@ export function login() {
   }
 }
 
-export function dummyLogin() {
-  return async dispatch => {
-    await ActionUtility.createThunkEffect(dispatch,AUTH_REQUEST, AuthEffect.dummyLogin)
-  }
-}
-
 export function setCurrentUser(user) {
   return async dispatch => {
     await ActionUtility.createThunkEffect(dispatch, AUTH_REQUEST, AuthEffect.setCurrentUser, user)

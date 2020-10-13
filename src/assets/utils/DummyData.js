@@ -1,5 +1,9 @@
 import userIcon from '../static/user-icon.png'
 
+const { REACT_APP_ONLY_DUMMY } = process.env
+
+export const isDummy = REACT_APP_ONLY_DUMMY === 'true'
+
 export const dummyUser = {
   uid: -1234,
   displayName: 'dummy',

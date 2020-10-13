@@ -28,7 +28,7 @@ export async function get(id) {
 }
 
 export async function getDummy(id) {
-  return dummySpreadSheets.filter((ss) => (ss._id = id))
+  return dummySpreadSheets.find((ss) => (ss._id === id))
 }
 
 export async function create(spreadsheet) {

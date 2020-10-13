@@ -1,11 +1,14 @@
 import firebaseApp, { googleProvider } from '../../firebase'
 import ResponseError from '../../assets/utils/ResponseError'
-import { dummySpreadSheets, dummyUser } from '../../assets/utils/DummyData'
+import { dummySpreadSheets, isDummy } from '../../assets/utils/DummyData'
 
 export async function login() {
   try {
     const result = await firebaseApp.auth().signInWithPopup(googleProvider)
-    return { user: setCurrentUser(result.user), isDummy: false }
+    if(isDummy){
+      localStorage.setItem('SHEETS', JSON.stringify(dummySpreadSheets));
+    }
+    return setCurrentUser(result.user)
   } catch (error) {
     const { code, message, email, credential } = error
     const responseError = new ResponseError()
@@ -14,11 +17,6 @@ export async function login() {
     responseError.raw = { email, credential }
     return responseError
   }
-}
-
-export async function dummyLogin() {
-  localStorage.setItem('SHEETS', JSON.stringify(dummySpreadSheets));
-  return { user: setCurrentUser(dummyUser), isDummy: true }
 }
 
 export async function logout() {

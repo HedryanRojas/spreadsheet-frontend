@@ -2,6 +2,7 @@
 import * as ActionUtility from '../../assets/utils/ActionUtility'
 import * as SpreadSheetEffect from './SpreadSheetEffect'
 import { generate } from '../../assets/utils/NameGenator'
+import { isDummy } from '../../assets/utils/DummyData'
 
 export const SAVE_CELL_DATA = 'SpreadSheetAction.SAVE_CELL_DATA'
 export const SAVE_CELL_DATA_FINISHED =
@@ -11,8 +12,6 @@ export function saveCellData(key, cell) {
   return async (dispatch, getState) => {
     const spreadsheet = await getState().spreadsheet.spreadsheet
     const data = { [key]: cell }
-
-    console.log('saving data', { data, spreadsheet })
 
     await ActionUtility.createThunkEffect(
       dispatch,
@@ -30,7 +29,7 @@ export const REQUEST_SPREADSHEETS_FINISHED =
 
 export function requestSpreadSheets() {
   return async (dispatch, getState) => {
-    const { user, isDummy } = await getState().auth
+    const { user } = await getState().auth
     const action = isDummy
       ? SpreadSheetEffect.getAllDummy
       : SpreadSheetEffect.getAll
@@ -48,8 +47,7 @@ export const REQUEST_SPREADSHEET_FINISHED =
   'SpreadSheetAction.REQUEST_SPREADSHEET_FINISHED'
 
 export function requestSpreadSheet(id) {
-  return async (dispatch, getState) => {
-    const { isDummy } = await getState().auth
+  return async (dispatch) => {
     const action = isDummy ? SpreadSheetEffect.getDummy : SpreadSheetEffect.get
     await ActionUtility.createThunkEffect(
       dispatch,
@@ -67,9 +65,9 @@ export const REQUEST_CREATE_SPREADSHEET_FINISHED =
 
 export function requestCreateSpreadSheet() {
   return async (dispatch, getState) => {
-    const { user, isDummy } = await getState().auth
+    const { email } = await getState().auth.user
     const spreadsheet = {
-      email: user.email,
+      email,
       name: generate('spreadsheet'),
       data: {},
     }
@@ -93,7 +91,6 @@ export const REQUEST_DELETE_SPREADSHEET_FINISHED =
 export function requestDelete(id) {
   return async (dispatch, getState) => {
     const spreadsheets = await getState().spreadsheet.spreadsheets
-    const { isDummy } = await getState().auth
     const action = isDummy
       ? SpreadSheetEffect.removeDummy
       : SpreadSheetEffect.remove
