@@ -2,7 +2,7 @@
 
 This project aims to create a web spreadsheet where users can perform the basic operations that can be performed in others spreadsheets like google sheets, this data will be stored and it could be accessible by the user who has created it later if the user wants to.
 
-[Live demo](https://rojas96.github.io/spreadsheet-frontend/#/)
+[Live demo](https://hedryanrojas.github.io/spreadsheet-frontend/#/)
 # Supported Use-Cases
 
   - System must support at least 1000 rows and 1000 columns.
